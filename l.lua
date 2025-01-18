@@ -5767,41 +5767,8 @@ LPH_NO_VIRTUALIZE(function() -- Make UI
         makefolder(folderName .. "/configs")
     end
 
-    if not isfolder(folderName .. "/cache") then
-        makefolder(folderName .. "/cache")
-    end
 
-    if not isfolder(folderName .. "/cache/votekick data") then
-        makefolder(folderName .. "/cache/votekick data")
-    end
-
-    --writefile(folderName .. "/cache/votekick data/" .. fileName, userName)
-
-    if not isfile(folderName .. "/cache/servers.json") then
-        writefile(folderName .. "/cache/servers.json", httpService:JSONEncode({}))
-    end
-
-    if not isfolder(folderName .. "/sounds") then
-        makefolder(folderName .. "/sounds")
-
-        task.delay(1, function()
-            for name, link in {
-                ["roblox hit"] = "https://www.myinstants.com/media/sounds/roblox-death-sound_ytkBL7X.mp3",
-                ["minecraft hit"] = "https://www.myinstants.com/media/sounds/steve-old-hurt-sound_XKZxUk4.mp3",
-                ["discord"] = "https://www.myinstants.com/media/sounds/discord-notification.mp3",
-                ["taco bell"] = "https://www.myinstants.com/media/sounds/taco-bell-bong-sfx.mp3",
-                ["bye bye"] = "https://www.myinstants.com/media/sounds/bye-bye-see-ya-later-audiotrimmer.mp3",
-                ["hit marker"] = "https://www.myinstants.com/media/sounds/hitmarker_2.mp3",
-                ["punch"] = "https://www.myinstants.com/media/sounds/punch-gaming-sound-effect-hd_RzlG1GE.mp3",
-                ["minecraft bow"] = "https://www.myinstants.com/media/sounds/bow_shoot.mp3",
-                ["fart"] = "https://www.myinstants.com/media/sounds/fart-moan3.mp3",
-                ["cum"] = "https://www.myinstants.com/media/sounds/splooge-sound.mp3",
-                ["moan"] = "https://www.myinstants.com/media/sounds/anime-ahh.mp3",
-                ["goofy"] = "https://www.myinstants.com/media/sounds/goofy-ahh-sounds.mp3"
-            } do -- why so mean
-                writefile(folderName .. "/sounds/" .. name .. ".mp3", game:HttpGet(link, true))
-                task.wait(1) -- some executors limit httpget
-            end
+    
         end)
     end
 
@@ -5844,15 +5811,7 @@ LPH_NO_VIRTUALIZE(function() -- Make UI
         end
     end)
 
-    if not isfolder(folderName .. "/chat spam lists") then
-        makefolder(folderName .. "/chat spam lists")
-    end
-
-    if not isfile(folderName .. "/chat spam lists/default.txt") then
-        writefile(folderName .. "/chat spam lists/default.txt", httpService:JSONEncode({
-            "alr"
-        }))
-    end
+    
 
     local configExists = isfile(folderName .. "/cache/lastfile.json")
     if not configExists then
